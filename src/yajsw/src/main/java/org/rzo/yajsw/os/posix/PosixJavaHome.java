@@ -125,8 +125,13 @@ public class PosixJavaHome implements JavaHome
 
 			// Posix Version does not use wrapper.java.command like Win version
 			// does. Update both
-			_config.setProperty("wrapper.java.command", java);
-			_config.setProperty("wrapper.ntservice.java.command", java);
+			try {
+				_config.setProperty("wrapper.java.command", java);
+				_config.setProperty("wrapper.ntservice.java.command", java);
+			} catch (final UnsupportedOperationException ex) {
+				System.err.println("Unable to update configuration with java path "+java+". This is certainly due to this bug https://sourceforge.net/p/yajsw/support-requests/41/");
+				ex.printStackTrace();
+			}
 		}
 
 		if (java == null)
