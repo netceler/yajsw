@@ -25,3 +25,15 @@ hs_err_pid*
 # Intellij
 .idea
 *.iml
+
+# Gradle
+.gradle/
+build/gradle/.gradle/
+build/gradle/ahessian/build/
+build/gradle/build/
+build/gradle/groovy-patch/build/
+build/gradle/hessian4/build/
+build/gradle/srvmgr/
+build/gradle/wrapper-app/build/
+build/gradle/wrapper/build/
+
